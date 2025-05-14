@@ -1,0 +1,59 @@
+@import "../../../styles/variables";
+
+.url-form {
+  background-color: $dark-violet;
+  background-image: url("/svgs/bg-shorten-desktop.svg"); // 🔁 Change to your actual path
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2rem;
+  max-width: 1440px;
+  width: 97.5%;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  text-align: center;
+  position: relative; // ⚠️ changed from absolute
+
+  top: 4rem; // or adjust spacing visually
+
+  form {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+
+    input {
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid $gray;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    button {
+      width: 150px;
+      border: none;
+      border-radius: 5px;
+      background-color: $cyan;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 18px;
+
+      &:hover {
+        background-color: darken($cyan, 10%);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    width: 90%;
+
+    .form-wrapper {
+      margin-top: -2rem;
+    }
+  }
+}

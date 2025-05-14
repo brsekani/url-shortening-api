@@ -1,0 +1,179 @@
+@import "../../../styles/variables";
+
+.main-header {
+  color: $very-dark-violet;
+  padding: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 500;
+  position: relative;
+
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .logo {
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+
+    a {
+      color: $very-dark-violet;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      cursor: pointer;
+      color: $gray;
+
+      &:hover,
+      &.active {
+        color: $very-dark-violet;
+      }
+    }
+  }
+
+  .button {
+    display: flex;
+    gap: 1rem;
+
+    .button__login,
+    .button__signup {
+      font-weight: 700;
+      width: 130px;
+      height: 50px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .button__login {
+      background-color: transparent;
+      color: $very-dark-violet;
+
+      &:hover {
+        background-color: $very-dark-violet;
+        color: white;
+      }
+    }
+
+    .button__signup {
+      background-color: $cyan;
+      color: white;
+
+      &:hover {
+        background-color: darken($cyan, 10%);
+      }
+    }
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+    background-color: $dark-violet;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+
+    &.open {
+      display: flex;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 0.5rem 0;
+
+      a {
+        font-size: 1rem;
+        width: 100%;
+        color: white;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        cursor: pointer;
+
+        &:hover,
+        &.active {
+          color: $very-dark-violet;
+        }
+      }
+    }
+
+    hr {
+      width: 100%;
+      height: 1px;
+      background-color: $grayish-violet;
+      border: none;
+    }
+
+    .button {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+
+      .button__login,
+      .button__signup {
+        color: white;
+        width: 100%;
+        font-size: 16px;
+        height: 45px;
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: $gray;
+    cursor: pointer;
+  }
+
+  // Mobile Styles
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links,
+    .button {
+      display: none;
+    }
+
+    .dropdown-menu {
+      display: none;
+    }
+
+    .dropdown-menu.open {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<header class="main-header">
+  <div class="container">
+    <img class="logo" src="/svgs/logo.svg" alt="logo" />
+    <nav class="nav-links" [class.open]="menuOpen">
+      <a>Features</a>
+      <a>Pricing</a>
+      <a>Resources</a>
+    </nav>
+  </div>
+
+  <div class="button">
+    <button class="button__login">Login</button>
+    <button class="button__signup">Sign Up</button>
+  </div>
+
+  <!-- Mobile dropdown menu (hidden by default) -->
+  <div class="dropdown-menu" [class.open]="menuOpen" #menuRef>
+    <nav class="nav-links">
+      <a routerLink="/features" routerLinkActive="active">Features</a>
+      <a routerLink="/pricing" routerLinkActive="active">Pricing</a>
+      <a routerLink="/resources" routerLinkActive="active">Resources</a>
+    </nav>
+
+    <hr />
+
+    <div class="button">
+      <button class="button__login">Login</button>
+      <button class="button__signup">Sign Up</button>
+    </div>
+  </div>
+
+  <button class="menu-toggle" (click)="toggleMenu($event)">☰</button>
+</header>

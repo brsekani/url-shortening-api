@@ -1,0 +1,106 @@
+@import "../../../styles/variables";
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 1rem;
+  gap: 2rem;
+
+  .hero-content {
+    max-width: 50%;
+    width: 100%;
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 115%;
+      color: $very-dark-violet;
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: $grayish-violet;
+      margin: 0.5rem 0 2rem;
+      width: 80%;
+    }
+
+    .cta-button {
+      background-color: $cyan;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($cyan, 10%);
+      }
+    }
+  }
+
+  .hero-image {
+    max-width: 50%;
+    width: 100%;
+    text-align: right;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  // ✅ Tablet (768px and down)
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 3rem 1.5rem;
+
+    .hero-content {
+      max-width: 100%;
+
+      h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+
+      p {
+        width: 100%;
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        width: 50%;
+      }
+    }
+
+    .hero-image {
+      max-width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  // ✅ Mobile (480px and down)
+  @media (max-width: 480px) {
+    padding: 2rem 1rem;
+
+    .hero-content {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      .cta-button {
+        font-size: 1rem;
+      }
+    }
+  }
+}

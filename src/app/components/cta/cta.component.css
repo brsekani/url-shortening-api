@@ -1,0 +1,40 @@
+.cta-section {
+  background-color: #3b3054;
+  padding: 4rem 0rem;
+  text-align: center;
+  background-image: url("/svgs/bg-boost-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  max-width: 14400px;
+  color: white;
+}
+@media (max-width: 768px) {
+  .cta-section {
+    background-image: url("/svgs/bg-boost-mobile.svg");
+  }
+}
+.cta-section .cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.cta-section .cta-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.cta-section .cta-container .cta-button {
+  background-color: #2acfcf;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 100px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.cta-section .cta-container .cta-button:hover {
+  background-color: #9be3e2;
+}/*# sourceMappingURL=cta.component.css.map */

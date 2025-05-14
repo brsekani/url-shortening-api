@@ -1,0 +1,47 @@
+<section class="advanced-statistics">
+  <div class="url-form-container">
+    <div class="url-entry">
+      <h4 class="original-url">https://www.freecodecamp.org/</h4>
+
+      <div class="short-url-box">
+        <p class="short-url">http://192.168.1.1</p>
+        <button class="copy-btn">Copy</button>
+      </div>
+    </div>
+
+    <div class="url-entry">
+      <h4 class="original-url">https://www.freecodecamp.org/</h4>
+
+      <div class="short-url-box">
+        <p class="short-url">http://192.168.1.1</p>
+        <button class="copy-btn">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="advanced-statistics-container">
+    <h2>Advanced Statistics</h2>
+    <p class="advanced-statistics-details">
+      Track how your links are performing across the web with our advanced
+      statistics dashboard.
+    </p>
+
+    <div class="cards">
+      <div class="connector-line"></div>
+      <div
+        class="card-wrapper"
+        *ngFor="let item of advancedStatisticsData; let i = index"
+      >
+        <div class="icon">
+          <img [src]="item.icon" />
+        </div>
+        <div class="card">
+          <h3>{{ item.title }}</h3>
+          <p class="card-details">
+            {{ item.details }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
