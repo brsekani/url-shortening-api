@@ -1,0 +1,10 @@
+{
+  "/api/shorten": {
+    "target": "https://cleanuri.com/api/v1",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/shorten": "/shorten"
+    }
+  }
+}

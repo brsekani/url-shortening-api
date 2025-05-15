@@ -6,6 +6,7 @@ import { CtaComponent } from '../../components/cta/cta.component';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [
     HeroComponent,
     UrlFormComponent,

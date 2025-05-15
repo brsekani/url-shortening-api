@@ -71,7 +71,8 @@
               "buildTarget": "url-shortening-api:build:production"
             },
             "development": {
-              "buildTarget": "url-shortening-api:build:development"
+              "buildTarget": "url-shortening-api:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

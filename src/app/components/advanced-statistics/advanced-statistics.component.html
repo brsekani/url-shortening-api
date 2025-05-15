@@ -1,20 +1,17 @@
 <section class="advanced-statistics">
-  <div class="url-form-container">
-    <div class="url-entry">
-      <h4 class="original-url">https://www.freecodecamp.org/</h4>
+  <div class="url-form-container" *ngIf="history.length">
+    <div class="url-entry" *ngFor="let item of history">
+      <h4 class="original-url">{{ item.longUrl }}</h4>
 
       <div class="short-url-box">
-        <p class="short-url">http://192.168.1.1</p>
-        <button class="copy-btn">Copy</button>
-      </div>
-    </div>
-
-    <div class="url-entry">
-      <h4 class="original-url">https://www.freecodecamp.org/</h4>
-
-      <div class="short-url-box">
-        <p class="short-url">http://192.168.1.1</p>
-        <button class="copy-btn">Copy</button>
+        <p class="short-url">{{ item.shortUrl }}</p>
+        <button
+          class="copy-btn"
+          [ngClass]="{ copied: copiedUrl === item.shortUrl }"
+          (click)="copyToClipboard(item.shortUrl)"
+        >
+          {{ copiedUrl === item.shortUrl ? "Copied!" : "Copy" }}
+        </button>
       </div>
     </div>
   </div>

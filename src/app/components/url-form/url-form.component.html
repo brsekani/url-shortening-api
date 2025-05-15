@@ -1,11 +1,22 @@
 <div class="url-form">
-  <form novalidate>
+  <form (ngSubmit)="shortenUrl()" #urlForm="ngForm">
     <input
-      type="url"
-      name="link"
-      placeholder="Shorten a link here..."
+      type="text"
+      name="url"
+      [(ngModel)]="longUrl"
       required
+      #urlInput="ngModel"
+      placeholder="Enter a long URL to shorten"
     />
-    <button type="submit">Shorten It!</button>
+    <button type="submit" [disabled]="urlForm.invalid || loading">
+      {{ loading ? "Shortening..." : "Shorten URL" }}
+    </button>
   </form>
+  <div *ngIf="urlInput.invalid && urlInput.touched" style="color: red">
+    URL is required.
+  </div>
+
+  <div *ngIf="error" style="color: red; margin-top: 10px">
+    {{ error }}
+  </div>
 </div>

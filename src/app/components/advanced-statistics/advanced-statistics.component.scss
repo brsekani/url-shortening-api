@@ -145,10 +145,14 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
     flex-shrink: 0;
+
+    &.copied {
+      background-color: $dark-violet; // Darker color for feedback
+    }
   }
 
   .copy-btn:hover {
-    background-color: #9be3e2;
+    background-color: $dark-violet;
   }
 
   /* DESKTOP OVERRIDE: Force inline layout */
@@ -161,6 +165,7 @@
     }
 
     .original-url {
+      max-width: 100%; // or a specific value like 300px
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
