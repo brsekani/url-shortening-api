@@ -22,17 +22,17 @@
 
   .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); // 3 columns
-    gap: 1rem; // smaller gap
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
     position: relative;
 
     .connector-line {
       position: absolute;
-      top: 50%; // center horizontally relative to .cards
+      top: 50%;
       left: 0;
       right: 0;
       height: 8px;
-      background-color: $cyan; // or any color like #2acfcf
+      background-color: $cyan;
       z-index: 0;
     }
 
@@ -87,7 +87,6 @@
     }
   }
 
-  /* Container that ensures vertical space */
   .url-form-container {
     display: flex;
     gap: 10px;
@@ -96,7 +95,6 @@
     margin-bottom: 2rem;
   }
 
-  /* Shared styles for entry */
   .url-entry {
     background: #ffffff;
     padding: 1rem 1.25rem;
@@ -108,7 +106,6 @@
     gap: 1rem;
   }
 
-  /* Original URL */
   .original-url {
     margin: 0;
     font-size: 1rem;
@@ -116,14 +113,12 @@
     word-break: break-word;
   }
 
-  /* Short URL box */
   .short-url-box {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 
-  /* Short URL */
   .short-url {
     margin: 0;
     font-size: 1rem;
@@ -134,7 +129,6 @@
     max-width: 100%;
   }
 
-  /* Copy button */
   .copy-btn {
     padding: 0.5rem 1rem;
     background-color: #2acfcf;
@@ -147,7 +141,7 @@
     flex-shrink: 0;
 
     &.copied {
-      background-color: $dark-violet; // Darker color for feedback
+      background-color: $dark-violet;
     }
   }
 
@@ -155,7 +149,6 @@
     background-color: $dark-violet;
   }
 
-  /* DESKTOP OVERRIDE: Force inline layout */
   @media (max-width: 768px) {
     .url-entry {
       flex-direction: column;
@@ -165,7 +158,7 @@
     }
 
     .original-url {
-      max-width: 100%; // or a specific value like 300px
+      max-width: 100%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

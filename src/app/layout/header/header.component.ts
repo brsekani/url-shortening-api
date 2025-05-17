@@ -12,16 +12,14 @@ export class HeaderComponent {
 
   // Method to toggle the menu (opens or closes it)
   toggleMenu(event: Event) {
-    event.stopPropagation(); // Prevent the click event from propagating to the document
+    event.stopPropagation();
     this.menuOpen = !this.menuOpen;
   }
 
   // Close the dropdown when resizing to desktop
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    // Check window width
     if (window.innerWidth > 768) {
-      // Close menu if open when transitioning to desktop view
       if (this.menuOpen) {
         this.menuOpen = false;
       }

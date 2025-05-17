@@ -27,8 +27,6 @@ export class UrlShortenerService {
     }
 
     const body = new HttpParams().set('url', trimmed);
-    // const body = new HttpParams().set('url', encodeURIComponent(trimmed));
-    console.log(body);
 
     return this.http.post<any>(this.apiUrl, body).pipe(
       map((res) => res.result_url),

@@ -42,7 +42,7 @@ export class AdvancedStatisticsComponent {
   copyToClipboard(text: string) {
     navigator.clipboard.writeText(text).then(() => {
       this.copiedUrl = text;
-      setTimeout(() => (this.copiedUrl = null), 2000); // Reset after 2s
+      setTimeout(() => (this.copiedUrl = null), 2000);
     });
   }
 }
