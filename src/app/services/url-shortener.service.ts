@@ -1,18 +1,26 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { environment } from '../../environment/environment.prod';
 
 interface ShortenedUrl {
   longUrl: string;
   shortUrl: string;
 }
 
+interface TinyUrlResponse {
+  data: {
+    tiny_url: string; // The shortened URL field from TinyURL API
+  };
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class UrlShortenerService {
-  private apiUrl = '/api/shorten';
+  private apiToken = environment.tinyUrlApiKey;
+  private apiUrl = 'https://api.tinyurl.com/create';
   private localStorageKey = 'shortenedUrls';
 
   constructor(private http: HttpClient) {}
@@ -26,15 +34,27 @@ export class UrlShortenerService {
       );
     }
 
-    const body = new HttpParams().set('url', trimmed);
+    const body = {
+      url: trimmed,
+      domain: 'tinyurl.com',
+    };
 
-    return this.http.post<any>(this.apiUrl, body).pipe(
-      map((res) => res.result_url),
-      tap((shortUrl) =>
-        this.saveToLocalStorage({ longUrl: trimmed, shortUrl })
-      ),
-      catchError(() => throwError(() => new Error('Failed to shorten the URL')))
-    );
+    return this.http
+      .post<TinyUrlResponse>(this.apiUrl, body, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${this.apiToken}`, // if your token is required
+        },
+      })
+      .pipe(
+        map((res) => res.data.tiny_url),
+        tap((shortUrl) =>
+          this.saveToLocalStorage({ longUrl: trimmed, shortUrl })
+        ),
+        catchError(() =>
+          throwError(() => new Error('Failed to shorten the URL'))
+        )
+      );
   }
 
   private saveToLocalStorage(item: ShortenedUrl): void {

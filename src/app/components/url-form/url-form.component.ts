@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UrlShortenerService } from '../../services/url-shortener.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -10,6 +10,8 @@ import { NgIf } from '@angular/common';
   styleUrl: './url-form.component.scss',
 })
 export class UrlFormComponent {
+  @ViewChild('urlInput') urlInput!: NgModel;
+
   longUrl = '';
   shortUrl: string | null = null;
   error: string | null = null;
@@ -25,6 +27,12 @@ export class UrlFormComponent {
     this.urlShortenerService.shortenUrl(this.longUrl).subscribe({
       next: (url) => {
         this.shortUrl = url;
+        this.longUrl = '';
+
+        // Reset input validation state
+        this.urlInput.control.markAsPristine();
+        this.urlInput.control.markAsUntouched();
+
         this.loading = false;
       },
 
