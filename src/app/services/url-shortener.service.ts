@@ -12,7 +12,7 @@ interface ShortenedUrl {
   providedIn: 'root',
 })
 export class UrlShortenerService {
-  private apiUrl = '/api/shorten';
+  private apiUrl = 'https://cleanuri.com/api/v1/shorten';
   private localStorageKey = 'shortenedUrls';
 
   constructor(private http: HttpClient) {}
