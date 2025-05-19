@@ -42,5 +42,6 @@ testem.log
 Thumbs.db
 
 # Angular environment file with API key
-src/environments/environment.prod.ts
+src/environments/.env
+.env
 

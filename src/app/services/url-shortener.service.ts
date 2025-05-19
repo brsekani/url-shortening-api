@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { environment } from '../../environment/environment.prod';
+import { environment } from '../../environments/environment';
 
 interface ShortenedUrl {
   longUrl: string;
@@ -23,7 +23,9 @@ export class UrlShortenerService {
   private apiUrl = 'https://api.tinyurl.com/create';
   private localStorageKey = 'shortenedUrls';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    console.log(this.apiToken);
+  }
 
   shortenUrl(longUrl: string): Observable<string> {
     const trimmed = longUrl.trim();
