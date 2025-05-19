@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node -r dotenv/config mynode.js && ng serve",
+    "prebuild": "sh ./scripts/generate-env.sh",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:url-shortening-api": "node dist/url-shortening-api/server/server.mjs"
