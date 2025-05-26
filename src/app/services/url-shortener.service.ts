@@ -19,7 +19,8 @@ interface TinyUrlResponse {
   providedIn: 'root',
 })
 export class UrlShortenerService {
-  private apiToken = environment.tinyUrlApiKey;
+  private apiToken =
+    'eQIoAGHvfsA9NtoqvO6yz7NYLzSOBoy2yReayIHE2Sk9KtcfXV3OhiyAZfKk';
   private apiUrl = 'https://api.tinyurl.com/create';
   private localStorageKey = 'shortenedUrls';
 

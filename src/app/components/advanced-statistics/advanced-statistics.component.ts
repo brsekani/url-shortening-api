@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { UrlShortenerService } from '../../services/url-shortener.service';
+import { Share } from '@capacitor/share';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-advanced-statistics',
@@ -40,9 +42,21 @@ export class AdvancedStatisticsComponent {
   }
 
   copyToClipboard(text: string) {
-    navigator.clipboard.writeText(text).then(() => {
+    navigator.clipboard.writeText(text).then(async () => {
       this.copiedUrl = text;
+      await Haptics.impact({ style: ImpactStyle.Medium });
       setTimeout(() => (this.copiedUrl = null), 2000);
+    });
+  }
+
+  async shareApp(text: string) {
+    await Haptics.impact({ style: ImpactStyle.Medium });
+
+    await Share.share({
+      title: 'Check this out!',
+      text: text,
+      url: text,
+      dialogTitle: 'Share with friends',
     });
   }
 }

@@ -8,7 +8,7 @@
       #urlInput="ngModel"
       placeholder="Enter a long URL to shorten"
     />
-    <button type="submit" [disabled]="urlForm.invalid || loading">
+    <button type="submit" [disabled]="urlForm.invalid || loading || isOnline">
       {{ loading ? "Shortening..." : "Shorten URL" }}
     </button>
   </form>
@@ -19,4 +19,8 @@
   <div *ngIf="error" style="color: red; margin-top: 10px">
     {{ error }}
   </div>
+
+  <p *ngIf="!isOnline" style="color: red; margin-top: 10px">
+    ⚠️ You are currently offline. Connect to the internet to shorten URLs.
+  </p>
 </div>

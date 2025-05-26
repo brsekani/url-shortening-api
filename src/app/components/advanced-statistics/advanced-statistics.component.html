@@ -5,12 +5,18 @@
 
       <div class="short-url-box">
         <p class="short-url">{{ item.shortUrl }}</p>
+
         <button
           class="copy-btn"
           [ngClass]="{ copied: copiedUrl === item.shortUrl }"
           (click)="copyToClipboard(item.shortUrl)"
         >
           {{ copiedUrl === item.shortUrl ? "Copied!" : "Copy" }}
+        </button>
+
+        <!-- Share Button -->
+        <button class="share-btn" (click)="shareApp(item.shortUrl)">
+          Share
         </button>
       </div>
     </div>
